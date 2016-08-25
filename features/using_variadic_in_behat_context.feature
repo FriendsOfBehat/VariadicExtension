@@ -13,7 +13,7 @@ Feature: Using variadic in behat context
             /** @When I use a step with :two :arguments */
             public function iUseAStepWith(...$variadic)
             {
-                echo sprintf('%d arguments were passed to this step', count($variadic));
+                echo sprintf('Number of passed arguments: %d', count($variadic));
             }
         }
         """
@@ -32,4 +32,4 @@ Feature: Using variadic in behat context
                 When I use a step with two arguments
         """
         When I run Behat
-        Then it should pass with "2 arguments were passed to this step"
+        Then it should pass with "Number of passed arguments: 2"
