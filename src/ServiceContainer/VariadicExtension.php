@@ -23,9 +23,10 @@ use Symfony\Component\DependencyInjection\Reference;
 /**
  * @author Łukasz Chruściel <lchrusciel@gmail.com>
  */
-class VariadicExtension implements Extension
+final class VariadicExtension implements Extension
 {
-    const VARIADIC_ARGUMENT_ORGANISER_ID = ArgumentExtension::MIXED_ARGUMENT_ORGANISER_ID . '.decorating';
+    const DECORATING_MIXED_ARGUMENT_ORGANISER_ID = ArgumentExtension::MIXED_ARGUMENT_ORGANISER_ID . '.decorating';
+    const DECORATED_MIXED_ARGUMENT_ORGANISER_ID = ArgumentExtension::MIXED_ARGUMENT_ORGANISER_ID . '.decorated';
 
     public function process(ContainerBuilder $container)
     {
@@ -47,10 +48,14 @@ class VariadicExtension implements Extension
     public function load(ContainerBuilder $container, array $config)
     {
         $definition = new Definition(VariadicArgumentOrganiser::class, [
-            new Reference(ArgumentExtension::MIXED_ARGUMENT_ORGANISER_ID . '.decorated'),
+            new Reference(self::DECORATED_MIXED_ARGUMENT_ORGANISER_ID),
         ]);
-        $definition->setDecoratedService(ArgumentExtension::MIXED_ARGUMENT_ORGANISER_ID, ArgumentExtension::MIXED_ARGUMENT_ORGANISER_ID . '.decorated');
 
-        $container->setDefinition(self::VARIADIC_ARGUMENT_ORGANISER_ID, $definition);
+        $definition->setDecoratedService(
+            ArgumentExtension::MIXED_ARGUMENT_ORGANISER_ID,
+            self::DECORATED_MIXED_ARGUMENT_ORGANISER_ID
+        );
+
+        $container->setDefinition(self::DECORATING_MIXED_ARGUMENT_ORGANISER_ID, $definition);
     }
 }
