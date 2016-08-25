@@ -28,19 +28,31 @@ final class VariadicExtension implements Extension
     const DECORATING_MIXED_ARGUMENT_ORGANISER_ID = ArgumentExtension::MIXED_ARGUMENT_ORGANISER_ID . '.decorating';
     const DECORATED_MIXED_ARGUMENT_ORGANISER_ID = ArgumentExtension::MIXED_ARGUMENT_ORGANISER_ID . '.decorated';
 
+    /**
+     * {@inheritdoc}
+     */
     public function getConfigKey()
     {
         return 'fob_variadic_argument';
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function initialize(ExtensionManager $extensionManager)
     {
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function configure(ArrayNodeDefinition $builder)
     {
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function load(ContainerBuilder $container, array $config)
     {
         $definition = new Definition(VariadicArgumentOrganiser::class, [
@@ -55,6 +67,9 @@ final class VariadicExtension implements Extension
         $container->setDefinition(self::DECORATING_MIXED_ARGUMENT_ORGANISER_ID, $definition);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function process(ContainerBuilder $container)
     {
     }
