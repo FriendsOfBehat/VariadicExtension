@@ -42,10 +42,10 @@ final class VariadicArgumentOrganiser implements ArgumentOrganiser
     {
         $organisedArguments = $this->decoratedArgumentOrganiser->organiseArguments($function, $arguments);
 
-        if (!$function->isVariadic()) {
-            return $organisedArguments;
+        if ($function->isVariadic()) {
+            $organisedArguments += array_diff($arguments, $organisedArguments);
         }
 
-        return array_merge($organisedArguments, array_diff($arguments, $organisedArguments));
+        return $organisedArguments;
     }
 }
