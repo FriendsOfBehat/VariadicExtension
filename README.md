@@ -1,7 +1,6 @@
-# Performance Extension
-###### Next, the simplest Behat extension you've ever used!
+# Variadic Extension
 
-Adds a variadic support for Behat contexts
+Adds variadic arguments support to Behat steps definitions.
 
 ## Usage
 
@@ -20,4 +19,4 @@ Adds a variadic support for Behat contexts
             FriendsOfBehat\VariadicExtension: ~
     ```
 
-3. Boom! :boom: Your Behat contexts are able to use variadic!
+3. Boom! :boom: Your Behat contexts are able to use variadic arguments in steps definitions!

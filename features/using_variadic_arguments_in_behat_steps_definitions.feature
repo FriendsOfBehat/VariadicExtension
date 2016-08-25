@@ -1,7 +1,7 @@
-Feature: Using variadic in behat context
-    In order to make behat contexts cleaner and more readable
-    As a Behat developer
-    I want to have a variadic support in Behat context
+Feature: Using variadic arguments in Behat steps definitions
+    In order to make Behat steps definitions cleaner and more readable
+    As a Behat User
+    I want to use variadic arguments in these
 
     Background:
         Given a context file "features/bootstrap/FeatureContext.php" containing:
