@@ -33,3 +33,13 @@ Feature: Using variadic in behat context
         """
         When I run Behat
         Then it should pass with "Number of passed arguments: 2"
+
+    Scenario: Disabled variadic support
+        And a feature file "features/enabled_variadic_support.feature" containing:
+        """
+        Feature: Enabled variadic support feature
+            Scenario: Enabled variadic support scenario
+                When I use a step with two arguments
+        """
+        When I run Behat
+        Then it should pass with "Number of passed arguments: 1"
