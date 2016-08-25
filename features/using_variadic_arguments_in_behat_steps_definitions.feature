@@ -16,7 +16,7 @@ Feature: Using variadic arguments in Behat steps definitions
              */
             public function iUseAStepWith(...$variadic)
             {
-                echo sprintf('Number of passed arguments: %d', count($variadic));
+                printf('Number of passed arguments: %d', count($variadic));
             }
         }
         """
