@@ -45,10 +45,10 @@ final class VariadicArgumentOrganiser implements ArgumentOrganiser
         $parameters = $function->getParameters();
         $numberOfParameters = $function->getNumberOfParameters();
 
-        if($numberOfParameters > 0 && !$parameters[$numberOfParameters - 1]->isVariadic()) {
-            return $organisedArguments;
+        if($numberOfParameters > 0 && $parameters[$numberOfParameters - 1]->isVariadic()) {
+            $organisedArguments = array_merge($organisedArguments, array_diff($arguments, $organisedArguments));
         }
 
-        return array_merge($organisedArguments, array_diff($arguments, $organisedArguments));
+        return $organisedArguments;
     }
 }
