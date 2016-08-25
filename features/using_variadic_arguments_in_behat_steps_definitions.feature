@@ -12,7 +12,7 @@ Feature: Using variadic arguments in Behat steps definitions
         {
             /**
              * @When I use a step with :two :arguments
-             * @When I use another step :with :three :arguments
+             * @When /^I use another step (\w+) (\w+) (\w+)$/
              */
             public function iUseAStepWith(...$variadic)
             {
@@ -21,7 +21,7 @@ Feature: Using variadic arguments in Behat steps definitions
         }
         """
 
-    Scenario: Enabled variadic support
+    Scenario: Enabled variadic support for steps with turnip notation
         Given a Behat configuration containing:
         """
         default:
@@ -37,7 +37,7 @@ Feature: Using variadic arguments in Behat steps definitions
         When I run Behat
         Then it should pass with "Number of passed arguments: 2"
 
-    Scenario: Enabled variadic reduce code duplication
+    Scenario: Enabled variadic support for steps with regexp notation
         Given a Behat configuration containing:
         """
         default:
