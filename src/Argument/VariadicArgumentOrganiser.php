@@ -17,8 +17,6 @@ use ReflectionFunctionAbstract;
 /**
  * Decorates a default argument organiser to support a variadic arguments also.
  * It will add all unused arguments to the end of argument list.
- *
- * @author Łukasz Chruściel <lchrusciel@gmail.com>
  */
 final class VariadicArgumentOrganiser implements ArgumentOrganiser
 {
