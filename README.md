@@ -13,6 +13,7 @@ Adds variadic arguments support to Behat steps definitions.
 2. Enable it in your Behat configuration:
     
     ```yaml
+    # behat.yml
     default:
         # ...
         extensions:
