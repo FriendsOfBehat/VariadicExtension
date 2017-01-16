@@ -27,7 +27,7 @@ final class VariadicExtension implements Extension
      */
     public function getConfigKey()
     {
-        return 'fob_variadic_argument';
+        return 'fob_variadic';
     }
 
     /**
