@@ -22,9 +22,6 @@ use Symfony\Component\DependencyInjection\Reference;
 
 final class VariadicExtension implements Extension
 {
-    const DECORATING_MIXED_ARGUMENT_ORGANISER_ID = ArgumentExtension::MIXED_ARGUMENT_ORGANISER_ID . '.decorating';
-    const DECORATED_MIXED_ARGUMENT_ORGANISER_ID = ArgumentExtension::MIXED_ARGUMENT_ORGANISER_ID . '.decorated';
-
     /**
      * {@inheritdoc}
      */
@@ -53,15 +50,11 @@ final class VariadicExtension implements Extension
     public function load(ContainerBuilder $container, array $config)
     {
         $definition = new Definition(VariadicArgumentOrganiser::class, [
-            new Reference(self::DECORATED_MIXED_ARGUMENT_ORGANISER_ID),
+            new Reference('fob_variadic.argument.mixed_organiser.inner'),
         ]);
+        $definition->setDecoratedService(ArgumentExtension::MIXED_ARGUMENT_ORGANISER_ID);
 
-        $definition->setDecoratedService(
-            ArgumentExtension::MIXED_ARGUMENT_ORGANISER_ID,
-            self::DECORATED_MIXED_ARGUMENT_ORGANISER_ID
-        );
-
-        $container->setDefinition(self::DECORATING_MIXED_ARGUMENT_ORGANISER_ID, $definition);
+        $container->setDefinition('fob_variadic.argument.mixed_organiser', $definition);
     }
 
     /**
