@@ -26,6 +26,14 @@ Feature: Using variadic arguments in steps definitions with named parameters
             {
                 printf('Number of passed arguments: %d', count($arguments));
             }
+
+            /**
+             * @When I pass :firstArgument and :secondArgument as arguments to :subject
+             */
+            public function iPassToSubject($subject, ...$arguments)
+            {
+                printf('Number of arguments passed to %s: %d', $subject, count($arguments));
+            }
         }
         """
 
@@ -50,3 +58,15 @@ Feature: Using variadic arguments in steps definitions with named parameters
         """
         When I run Behat
         Then it should pass with "Number of passed arguments: 3"
+
+    Scenario: Using variadic arguments together with regular one
+        Given a feature file "features/variadics_arguments_support.feature" containing:
+        """
+        Feature: Passing two variadic arguments and one regular argument
+
+            Scenario: Passing two variadic arguments and one regular argument
+                When I pass "foo" and "bar" as arguments to method
+
+        """
+        When I run Behat
+        Then it should pass with "Number of arguments passed to method: 2"
