@@ -15,7 +15,7 @@
         "symfony/dependency-injection":  "^2.8|^3.0"
     },
     "require-dev": {
-        "friends-of-behat/test-context": "^0.2"
+        "friends-of-behat/test-context": "^1.0"
     },
     "autoload": {
         "psr-4": { "FriendsOfBehat\\VariadicExtension\\": "src/" }
