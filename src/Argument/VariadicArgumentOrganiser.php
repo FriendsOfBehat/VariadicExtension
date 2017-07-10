@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the VariadicExtension package.
  *
@@ -36,7 +38,7 @@ final class VariadicArgumentOrganiser implements ArgumentOrganiser
     /**
      * {@inheritdoc}
      */
-    public function organiseArguments(ReflectionFunctionAbstract $function, array $arguments)
+    public function organiseArguments(ReflectionFunctionAbstract $function, array $arguments): array
     {
         $organisedArguments = $this->decoratedArgumentOrganiser->organiseArguments($function, $arguments);
 
