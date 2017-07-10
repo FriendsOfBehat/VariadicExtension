@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the VariadicExtension package.
  *
@@ -25,7 +27,7 @@ final class VariadicExtension implements Extension
     /**
      * {@inheritdoc}
      */
-    public function getConfigKey()
+    public function getConfigKey(): string
     {
         return 'fob_variadic';
     }
@@ -33,21 +35,21 @@ final class VariadicExtension implements Extension
     /**
      * {@inheritdoc}
      */
-    public function initialize(ExtensionManager $extensionManager)
+    public function initialize(ExtensionManager $extensionManager): void
     {
     }
 
     /**
      * {@inheritdoc}
      */
-    public function configure(ArrayNodeDefinition $builder)
+    public function configure(ArrayNodeDefinition $builder): void
     {
     }
 
     /**
      * {@inheritdoc}
      */
-    public function load(ContainerBuilder $container, array $config)
+    public function load(ContainerBuilder $container, array $config): void
     {
         $definition = new Definition(VariadicArgumentOrganiser::class, [
             new Reference('fob_variadic.argument.mixed_organiser.inner'),
@@ -60,7 +62,7 @@ final class VariadicExtension implements Extension
     /**
      * {@inheritdoc}
      */
-    public function process(ContainerBuilder $container)
+    public function process(ContainerBuilder $container): void
     {
     }
 }
