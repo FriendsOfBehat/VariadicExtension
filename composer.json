@@ -12,7 +12,7 @@
         "php": "^7.1",
 
         "behat/behat": "^3.1",
-        "symfony/dependency-injection":  "^2.8|^3.0"
+        "symfony/dependency-injection": "^3.2|^4.0"
     },
     "require-dev": {
         "friends-of-behat/test-context": "^1.0"
