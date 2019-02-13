@@ -20,7 +20,7 @@ Adds variadic arguments support to Behat steps definitions.
             FriendsOfBehat\VariadicExtension: ~
     ```
 
-3. Boom! :boom: Your Behat contexts are able to use variadic arguments in steps definitions!
+3. You can use variadic arguments in steps definitions!
 
     ```php
     /**
