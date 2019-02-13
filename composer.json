@@ -19,5 +19,10 @@
     },
     "autoload": {
         "psr-4": { "FriendsOfBehat\\VariadicExtension\\": "src/" }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.2-dev"
+        }
     }
 }
