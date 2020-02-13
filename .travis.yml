@@ -1,14 +1,20 @@
 language: php
 
 php:
-    - 7.1
     - 7.2
     - 7.3
 
 env:
     - SYMFONY_VERSION=3.4.*
-    - SYMFONY_VERSION=4.1.*
-    - SYMFONY_VERSION=4.2.*
+    - SYMFONY_VERSION=4.4.*
+    - SYMFONY_VERSION=5.0.*
+
+matrix:
+    include:
+        - php: 7.1
+          env: SYMFONY_VERSION=3.4.*
+        - php: 7.1 
+          env: SYMFONY_VERSION=4.4.*
 
 cache:
     directories:
