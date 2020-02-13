@@ -1,0 +1,47 @@
+---------------------------------------------------------------------------
+
+by emodric at 2019-12-09T10:36:40Z
+
+Done!
+
+---------------------------------------------------------------------------
+
+by pamil at 2019-12-09T10:56:07Z
+
+Symfony 5.0 is not supported by Behat itself yet, need to wait for that first.
+
+---------------------------------------------------------------------------
+
+by emodric at 2019-12-09T11:05:58Z
+
+No problem! I created the PR so its ready when needed :)
+
+---------------------------------------------------------------------------
+
+by emodric at 2020-02-12T10:53:24Z
+
+@pamil Behat now has support for Symfony 5. Do you think you can reevaluate this PR now?
+
+---------------------------------------------------------------------------
+
+by emodric at 2020-02-12T14:28:37Z
+
+Looks like Symfony 5 requires PHP 7.2.5. How would you like to handle this? Do I simply remove the combination from  the test matrix or do we bump the PHP version in `composer.json` ?
+
+---------------------------------------------------------------------------
+
+by lchrusciel at 2020-02-12T14:36:15Z
+
+I would say, that we need both ;)
+
+---------------------------------------------------------------------------
+
+by emodric at 2020-02-12T15:12:21Z
+
+How about this? Should be ok now.
+
+---------------------------------------------------------------------------
+
+by lchrusciel at 2020-02-13T07:31:38Z
+
+Thank you, Edi! :1st_place_medal:
