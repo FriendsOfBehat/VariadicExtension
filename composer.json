@@ -9,7 +9,7 @@
         }
     ],
     "require": {
-        "php": "^7.1",
+        "php": "^7.1 || ^8.0",
 
         "behat/behat": "^3.4",
         "symfony/dependency-injection": "^3.4|^4.1|^5.0"
