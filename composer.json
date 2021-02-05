@@ -9,9 +9,9 @@
         }
     ],
     "require": {
-        "php": "^7.1 || ^8.0",
-        "behat/behat": "^3.4",
-        "symfony/dependency-injection": "^3.4 || ^4.1 || ^5.0"
+        "php": "^7.4 || ^8.0",
+        "behat/behat": "^3.8",
+        "symfony/dependency-injection": "^4.4 || ^5.2"
     },
     "require-dev": {
         "friends-of-behat/test-context": "^1.0"

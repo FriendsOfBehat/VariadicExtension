@@ -1,0 +1,44 @@
+name: Build
+
+on:
+    push: ~
+    pull_request: ~
+    release:
+        types: [created]
+    schedule:
+        -
+            cron: "0 1 * * 6" # Run at 1am every Saturday
+
+jobs:
+    tests:
+        runs-on: ubuntu-20.04
+        name: "PHP ${{ matrix.php }}, Symfony ${{ matrix.symfony }}"
+        strategy:
+            fail-fast: false
+            matrix:
+                php: ["7.4", "8.0"]
+                symfony: ["^4.4", "^5.2"]
+
+        steps:
+            -   uses: actions/checkout@v2
+
+            -   name: Setup PHP
+                uses: shivammathur/setup-php@v2
+                with:
+                    php-version: "${{ matrix.php }}"
+                    coverage: none
+
+            -   name: Restrict Symfony version
+                if: matrix.symfony != ''
+                run: |
+                    composer global require --no-progress --no-scripts --no-plugins "symfony/flex:^1.11"
+                    composer config extra.symfony.require "${{ matrix.symfony }}"
+
+            -   name: Install dependencies
+                run: composer update
+
+            -   name: Run analysis
+                run: composer validate --strict
+
+            -   name: Run tests
+                run: vendor/bin/behat --strict -vvv --no-interaction
