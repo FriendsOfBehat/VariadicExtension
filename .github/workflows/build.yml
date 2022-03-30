@@ -18,6 +18,9 @@ jobs:
             matrix:
                 php: ["7.4", "8.0"]
                 symfony: ["^4.4", "^5.4", "6.0"]
+                exclude:
+                    - php: "7.4"
+                      symfony: "6.0"
 
         steps:
             -   uses: actions/checkout@v2
