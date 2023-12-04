@@ -34,4 +34,16 @@ Adds variadic arguments support to Behat steps definitions.
             $this->saveProduct($this->createProduct($productName));
         }
     }
+   
+   /**
+     * @Given /^(this channel) has "([^"]+)", "([^"]+)", "([^"]+)" and "([^"]+)" products$/
+     */
+    public function thisChannelHasProducts(ChannelInterface $channel, ...$productsNames)
+    {
+        foreach ($productsNames as $productName) {
+            $product = $this->createProduct($productName, 0, $channel);
+
+            $this->saveProduct($product);
+        }
+    }
     ```
