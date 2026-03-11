@@ -24,31 +24,19 @@ use Symfony\Component\DependencyInjection\Reference;
 
 final class VariadicExtension implements Extension
 {
-    /**
-     * {@inheritdoc}
-     */
     public function getConfigKey(): string
     {
         return 'fob_variadic';
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function initialize(ExtensionManager $extensionManager): void
     {
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function configure(ArrayNodeDefinition $builder): void
     {
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function load(ContainerBuilder $container, array $config): void
     {
         $definition = new Definition(VariadicArgumentOrganiser::class, [
@@ -59,9 +47,6 @@ final class VariadicExtension implements Extension
         $container->setDefinition('fob_variadic.argument.mixed_organiser', $definition);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function process(ContainerBuilder $container): void
     {
     }
