@@ -10,11 +10,11 @@
     ],
     "require": {
         "php": "^8.1",
-        "behat/behat": "^3.8",
-        "symfony/dependency-injection": "^5.4 || ^6.4 || ^7.0"
+        "behat/behat": "^3.8 || ^4.0",
+        "symfony/dependency-injection": "^5.4 || ^6.4 || ^7.4 || ^8.0"
     },
     "require-dev": {
-        "friends-of-behat/test-context": "^1.0"
+        "friends-of-behat/test-context": "^1.4"
     },
     "extra": {
         "branch-alias": {

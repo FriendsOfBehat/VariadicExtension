@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace FriendsOfBehat\VariadicExtension\Argument;
 
 use Behat\Testwork\Argument\ArgumentOrganiser;
-use ReflectionFunctionAbstract;
 
 /**
  * Decorates a default argument organiser to support a variadic arguments also.
@@ -22,23 +21,11 @@ use ReflectionFunctionAbstract;
  */
 final class VariadicArgumentOrganiser implements ArgumentOrganiser
 {
-    /**
-     * @var ArgumentOrganiser
-     */
-    private $decoratedArgumentOrganiser;
-
-    /**
-     * @param ArgumentOrganiser $decoratedArgumentOrganiser
-     */
-    public function __construct(ArgumentOrganiser $decoratedArgumentOrganiser)
+    public function __construct(private ArgumentOrganiser $decoratedArgumentOrganiser)
     {
-        $this->decoratedArgumentOrganiser = $decoratedArgumentOrganiser;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function organiseArguments(ReflectionFunctionAbstract $function, array $arguments): array
+    public function organiseArguments(\ReflectionFunctionAbstract $function, array $arguments): array
     {
         $organisedArguments = $this->decoratedArgumentOrganiser->organiseArguments($function, $arguments);
 

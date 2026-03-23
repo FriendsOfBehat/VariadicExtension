@@ -1,5 +1,7 @@
 default:
     suites:
         default:
+            paths:
+                - '%paths.base%/features/annotations'
             contexts:
                 - FriendsOfBehat\TestContext\Context\TestContext
